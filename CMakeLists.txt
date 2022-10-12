@@ -1,2 +1,0 @@
-add_executable(hello_quantum_world.exe hello_quantum_world.cpp)
-target_link_libraries(hello_quantum_world.exe iqs)

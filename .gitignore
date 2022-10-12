@@ -4,3 +4,8 @@ CMakeCache.txt
 *.exe
 build
 Makefile
+*.cxx
+*.o
+*.class
+*JNI.java
+*.so

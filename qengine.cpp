@@ -1,10 +1,7 @@
-#include "../intel-qs/include/qureg.hpp"
+#include "qureg.hpp"
 
-int main(int argc, char **argv)
+double run_circuit(unsigned int qbit)
 {
-    iqs::mpi::Environment env(argc, argv);
-    if (env.IsUsefulRank() == false) return 0;
-    
     int num_qubits = 2;
     iqs::QubitRegister<ComplexDP> psi (num_qubits, "base", 0);
 
@@ -14,5 +11,8 @@ int main(int argc, char **argv)
     psi.ApplyCPauliX(0, 1);
 
     psi.Print("Measurement =");
-    return 0;
+
+    psi.Normalize();
+
+    return psi.GetProbability(qbit);
 }
